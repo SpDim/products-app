@@ -1,12 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const port = 3000;
 
 const cors = require('cors');
 const user = require('./routes/user.route');
 const product = require('./routes/product.route');
-const user_product = require('./routes/user-product.route');
+const user_products = require('./routes/user-product.route');
 
 const swaggerUI = require('swagger-ui-express');
 const swaggerDocument = require('./swagger');
@@ -36,12 +35,10 @@ app.use(cors({
 
 app.use('/api/users', user);    // middleware
 // app.use('/api/products', product);  // middleware
-app.use('/api/users-products', user_product)  // middleware
+app.use('/api/users-products', user_products)  // middleware
 app.use('/api-docs',            // middleware
     swaggerUI.serve,
     swaggerUI.setup(swaggerDocument.options)
 );
 
-app.listen(port, () => {
-    console.log('Listening in port 3000');
-});
+module.exports = app;

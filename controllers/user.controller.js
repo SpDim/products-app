@@ -12,7 +12,7 @@ exports.findAll = async(req, res) => {
             data: result
         });
         logger.info("Log info: success in reading all users...");
-        logger.error(">>>> Problem in reading all users");
+        // logger.error(">>>> Problem in reading all users");
         // logger.log("Logger success in reading all users")
         console.log("Success in reading all users");
     } catch (err) {
